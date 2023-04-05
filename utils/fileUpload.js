@@ -15,12 +15,12 @@ const upload = multer({
     limits:{fileSize:10000*100},
     fileFilter:(req,file,cb)=>{
         const fileTypes = /jpg|png|gif|mp4/;
-        const mimeTypes = fileTypes.test(file.mimeType);
-        const extname = fileTypes.test(path.extname(file.originalname));
-        if (mimeTypes  && extname){
-            return cb(null,true);
-
-        }
+        // const mimeTypes = fileTypes.test(file.mimeType);
+        // const extname = fileTypes.test(path.extname(file.originalname));
+        // if (mimeTypes  && extname){
+            
+        // }
+        return cb(null,true);
         cb("only images supported");
 
     }

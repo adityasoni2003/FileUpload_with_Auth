@@ -7,7 +7,7 @@ const upload =  require("../utils/fileUpload");
 
 router.post("/create",isAuthenticated,isSeller,async(req,res)=>{
     try {
-        console.log("inside product route")
+       
         
     
     upload(req,res,async(err)=>{
@@ -40,7 +40,7 @@ router.post("/create",isAuthenticated,isSeller,async(req,res)=>{
     })
 } catch (error) {
     res.status(500).json({
-        error
+        error : error
     })
     
 }

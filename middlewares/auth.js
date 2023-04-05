@@ -2,8 +2,9 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/userModel")
 const isAuthenticated=async(req,res,next)=>{
     try {
-        const authHeader = req.Headers.Authorization ;
-        console.log(authHeader)
+       
+        const authHeader = req.headers.authorization ;
+       
         if(!authHeader){
             return res.status(401).json({
                 error:"Authorization Header not found"
@@ -26,7 +27,7 @@ const isAuthenticated=async(req,res,next)=>{
 
         }
         req.user = user;
-        console.log("Inside auth middleware")
+       
         next();
         
         
