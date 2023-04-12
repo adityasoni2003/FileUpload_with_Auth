@@ -14,14 +14,14 @@ const upload = multer({
     storage:storage,
     limits:{fileSize:10000*100},
     fileFilter:(req,file,cb)=>{
-        const fileTypes = /jpg|png|gif|mp4/;
-        // const mimeTypes = fileTypes.test(file.mimeType);
-        // const extname = fileTypes.test(path.extname(file.originalname));
-        // if (mimeTypes  && extname){
-            
-        // }
-        return cb(null,true);
-        cb("only images supported");
+        const fileTypes = /jpg|png|mp4|mkv|flv|mov|wmv|gif/;
+        const mimeType = fileTypes.test(file.mimetype);
+        const extname = fileTypes.test(path.extname(file.originalname));
+
+        if (mimeType && extname) {
+        return cb(null, true);
+        }
+        cb("Give proper files formate to upload");
 
     }
 }).single("content");

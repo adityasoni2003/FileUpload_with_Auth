@@ -10,8 +10,10 @@ const router = express.Router();
 router.post("/signup",async(req,res)=>{
     try {
         const {name,email,password,isSeller} = req.body;
+
+     
         const existingUser = await User.findOne({where:{email}});
-        console.log("Inside user route")
+       
         if (existingUser){
             return res.status(403).json({error:"User already exists please signUp"});
         }

@@ -1,6 +1,6 @@
 const isSeller= async(req,res,next)=>{
-    console.log(req.user)
-    if (req.user.isSeller){
+    
+    if (req.user.dataValues.isSeller){
         
         next();
     }else{
